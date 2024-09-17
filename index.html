@@ -6,20 +6,357 @@
     <meta name="description" content="A simple web page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/alpinejs@latest/dist/cdn.min.js"></script>
-    <script src="./scripts/javascript.js"></script>
-    <script src="./widgets/loader.js"></script>
+    <script defer src="https://unpkg.com/alpinejs-scroll-to@latest/dist/scroll-to.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet" />
+
+
+<script  src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="data.js"></script>
+
+
+
 
 </head>
-<body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    <nav>
-    </nav>
-    </main>
+<body class="bg-gray-100">
+  <div class="p-4">
+    <span class="material-symbols-outlined">
+      translate
+      </span >
+    <label x-text="data[data.lang].lang" for="languageSelect" class="text-xl p-4 ">  </label>
+    <select
+      name="languageSelect"
+      id="HeadlineAct"
+      class="mt-1.5 w rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+      x-model="data.lang"
+    >
+      <option value="en">English</option>
+      <option value="sk">Slovak</option>
+    </select>
+  </div>
+ 
+  
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+        <div class=" rounded-lg bg-gray-100">
+          <div class="p-4 mb-10">  <p class="text-6xl font-bold text-rose-600" x-text="data[data.lang].greeting"></p><p class="text-4xl" x-text="data[data.lang].me"></p></div>
+        </div>
+        <div class=" rounded-lg bg-gray-100 lg:col-span-2">
+       
+        </div>
+      </div>
+      <div class="">
+      <span class="flex items-center bg-gradient-to-t from-transparent via-gray-100 to-gray-100 sticky top-0">
+        <span  x-text="data[data.lang].xp" class="pr-6 text-3xl font-bold "></span>
+        <span class="h-px flex-1 bg-black"></span>
+      </span>
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3  m-4 lg:gap-8">
+        <div class=" rounded-lg  lg:col-span-2">
+            <div x-data="timeline">
+                <ol class="relative border-s ml-4">
+                    <template x-for="item in data[data.lang].roles" :key="index">
+                        <li class="mb-10 ms-4">
+                            <div class="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-2 border-rose-600"></div>
+                            <time class="mb-1 text-sm font-normal leading-none text-gray-400" x-text="item.date"></time>
+                            <h3 class="text-lg font-semibold text-gray-900" x-text="item.title"></h3>
+                            <p class="mb-4 text-base font-normal text-gray-500" x-text="item.description"></p>
+                            <p class="mb-4 text-base font-normal text-gray-500" x-text="item.company"></p>
+                        </li>
+                    </template>
+                </ol>
+            </div>
+
+        </div>
+        <div class="rounded-lg bg-gray-100">
+            <a
+  class="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
+  href="#"
+>
+  <span class="absolute -start-full transition-all group-hover:start-4">
+    <span class="material-symbols-outlined">
+        download
+        </span>
+  </span>
+
+  <span class="text-sm font-medium transition-all group-hover:ms-4"> Download CV </span>
+</a>
+        </div>
+      </div>
+      
+      <div>
+        <span class="flex items-center bg-gradient-to-t from-transparent via-gray-100 to-gray-100 sticky top-0">
+            <span x-text="data[data.lang].projects" class="pr-6 font-bold text-3xl"></span>
+            <span class="h-px flex-1 bg-black"></span>
+          </span>
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+            <div class="h-32 rounded-lg bg-gray-100"></div>
+
+
+
+
+
+
+
+
+
+
+
+            
+            <div class=" lg:col-span-2">
+
+
+
+<script type="module">
+  import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm'
+
+  const keenSlider = new KeenSlider(
+    '#keen-slider',
+    {
+      loop: true,
+      slides: {
+        origin: 'center',
+        perView: 1.25,
+        spacing: 16,
+      },
+      breakpoints: {
+        '(min-width: 1024px)': {
+          slides: {
+            origin: 'auto',
+            perView: 1.5,
+            spacing: 32,
+          },
+        },
+      },
+    },
+    []
+  )
+
+  const keenSliderPrevious = document.getElementById('keen-slider-previous')
+  const keenSliderNext = document.getElementById('keen-slider-next')
+
+  const keenSliderPreviousDesktop = document.getElementById('keen-slider-previous-desktop')
+  const keenSliderNextDesktop = document.getElementById('keen-slider-next-desktop')
+
+  keenSliderPrevious.addEventListener('click', () => keenSlider.prev())
+  keenSliderNext.addEventListener('click', () => keenSlider.next())
+
+  keenSliderPreviousDesktop.addEventListener('click', () => keenSlider.prev())
+  keenSliderNextDesktop.addEventListener('click', () => keenSlider.next())
+</script>
+
+<section class="">
+  <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
+      <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+        <h2 x-text="data[data.lang].description" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          
+        </h2>
+
+        <p x-text="data[data.lang].goToGithub" class="mt-4 text-gray-700">
+         
+        </p>
+
+        <div class="hidden lg:mt-8 lg:flex lg:gap-4">
+          <button
+            aria-label="Previous slide"
+            id="keen-slider-previous-desktop"
+            class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-5 rtl:rotate-180"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
+
+          <button
+            aria-label="Next slide"
+            id="keen-slider-next-desktop"
+            class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+          >
+            <svg
+              class="size-5 rtl:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 5l7 7-7 7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="-mx-6 lg:col-span-2 lg:mx-0">
+        <div >
+            <div id="keen-slider" class="keen-slider">
+                <template x-for="(item, index) in data[data.lang].slides" :key="index">
+                    <div class="keen-slider__slide">
+                        <blockquote
+                            class="flex h-full flex-col justify-between bg-gray-200 p-6 shadow-sm sm:p-8 lg:p-12"
+                        >
+                            <div>
+                                <div class="mt-4">
+                                    <p class="text-2xl font-bold text-rose-600 sm:text-3xl" x-text="item.title"></p>
+                                    <p class="mt-4 leading-relaxed text-gray-700" x-text="item.content"></p>
+                                </div>
+                            </div>
+                            <a
+  class="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
+  target="_blank" rel="noopener noreferrer" x-bind:href="item.link"
+>
+  <span class="absolute -start-full transition-all group-hover:start-4">
+    <svg
+      class="size-5 rtl:rotate-180"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M17 8l4 4m0 0l-4 4m4-4H3"
+      />
+    </svg>
+  </span>
+
+  <span x-text="data[data.lang].demo" class="text-sm font-medium transition-all group-hover:ms-4"></span>
+</a>
+
+
+                           
+                        </blockquote>
+                        
+                    </div>
+                </template>
+            </div>
+        </div>
+        
+      
+        
+
+         
+         
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 flex justify-center gap-4 lg:hidden">
+      <button
+        aria-label="Previous slide"
+        id="keen-slider-previous"
+        class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+      >
+        <svg
+          class="size-5 -rotate-180 transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+        </svg>
+      </button>
+
+      <button
+        aria-label="Next slide"
+        id="keen-slider-next"
+        class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+      >
+        <svg
+          class="size-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+  
+
+            </div>
+            <span class="flex items-center">
+        
+                <span class="h-px flex-1 bg-black"></span>
+              </span>
+          </div>
+          
+
+        
+    
+          <div class="grid grid-cols-1 gap-4 p-4 lg:grid-cols-3 lg:gap-8">
+            <div class="h-32 flex items-center bg-gray-200">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0,0,256,256"><g fill="#e11d48" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8,8)"><path d="M16,4c-6.62891,0 -12,5.37109 -12,12c0,5.30078 3.4375,9.80078 8.20703,11.38672c0.60156,0.10938 0.82031,-0.25781 0.82031,-0.57812c0,-0.28516 -0.01172,-1.03906 -0.01562,-2.03906c-3.33984,0.72266 -4.04297,-1.60937 -4.04297,-1.60937c-0.54687,-1.38672 -1.33203,-1.75781 -1.33203,-1.75781c-1.08984,-0.74219 0.08203,-0.72656 0.08203,-0.72656c1.20313,0.08594 1.83594,1.23438 1.83594,1.23438c1.07031,1.83594 2.80859,1.30469 3.49219,1c0.10938,-0.77734 0.42188,-1.30469 0.76172,-1.60547c-2.66406,-0.30078 -5.46484,-1.33203 -5.46484,-5.92969c0,-1.3125 0.46875,-2.38281 1.23438,-3.22266c-0.12109,-0.30078 -0.53516,-1.52344 0.11719,-3.17578c0,0 1.00781,-0.32031 3.30078,1.23047c0.95703,-0.26562 1.98438,-0.39844 3.00391,-0.40234c1.01953,0.00391 2.04688,0.13672 3.00391,0.40234c2.29297,-1.55078 3.29688,-1.23047 3.29688,-1.23047c0.65625,1.65234 0.24609,2.875 0.12109,3.17578c0.76953,0.83984 1.23047,1.91016 1.23047,3.22266c0,4.60938 -2.80469,5.62109 -5.47656,5.92188c0.42969,0.36719 0.8125,1.10156 0.8125,2.21875c0,1.60547 -0.01172,2.89844 -0.01172,3.29297c0,0.32031 0.21484,0.69531 0.82422,0.57813c4.76563,-1.58984 8.19922,-6.08594 8.19922,-11.38672c0,-6.62891 -5.37109,-12 -12,-12z"></path></g></g></svg>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/o-kollar" class="text-xl text-indigo-600 font-bold">o-kollar</a>
+            </div>
+            <div class="h-32 flex items-center  bg-gray-200">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0,0,256,256"><g fill="#e11d48" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8,8)"><path d="M14.17969,2l-8.2793,16h4.87891l3.40039,-6.38086l3.38086,6.38086h4.83984zM22.40039,18l-2.40039,4.78906l-2.43945,-4.78906h-3.70117l6.14063,12l6.09961,-12z"></path></g></g></svg>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.strava.com/athletes/143496441" class="text-xl text-indigo-600 font-bold">Ondrej Kollar</a>
+            </div>
+            <div class="h-32  bg-gray-200 flex items-center">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0,0,256,256"><g fill="#e11d48" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M2.53711,6l11.27344,10.52148c0.667,0.624 1.71291,0.624 2.37891,0l11.27344,-10.52148zM1,7.30078v15.28516l7.90625,-7.90625zM29,7.30078l-7.90625,7.37891l7.90625,7.90625zM10.36719,16.04492l-7.95313,7.95508h25.17188l-7.95508,-7.95508l-2.07617,1.9375c-0.717,0.669 -1.63764,1.00391 -2.55664,1.00391c-0.919,0 -1.83769,-0.33491 -2.55469,-1.00391z"></path></g></g></svg>
+              <a target="_blank" rel="noopener noreferrer" href="mailto:o.kollar@icloud.com" class="text-xl text-indigo-600 font-bold">o.kollar@icloud.com</a>
+            </div>
+           
+          </div>
+          
+          <a id="back-to-top"
+  class="group w-full relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
+
+>
+  <span class="absolute -start-full transition-all group-hover:start-4">
+    <span class="material-symbols-outlined">
+      elevator
+      </span>
+  </span>
+
+  <span x-text="data[data.lang].btt" class="text-sm font-medium transition-all group-hover:ms-4"></span>
+</a>
+      
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const button = document.getElementById('back-to-top');
+          
+              // Show the button when the user scrolls down 100px from the top
+              window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                  button.classList.remove('hidden');
+                } else {
+                  button.classList.add('hidden');
+                }
+              });
+          
+              // Smooth scroll to top
+              button.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              });
+            });
+          </script>
+          
     <footer>
-        <p>&copy; 2023 My Website</p>
+        <p>&copy; 2024 My Website</p>Ondrej Kollár
     </footer>
 
 </body>
